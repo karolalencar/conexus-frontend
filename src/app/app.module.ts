@@ -11,6 +11,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { HomeComponent } from './pages/clients/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppMaterialModule } from './shared/app-material/app-material.module';
+import { ProfessionalsListComponent } from './pages/professionals/professionals-list/professionals-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AppMaterialModule } from './shared/app-material/app-material.module';
     HeaderComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    ProfessionalsListComponent
   ],
   imports: [
     BrowserModule,
