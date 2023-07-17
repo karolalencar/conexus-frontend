@@ -9,8 +9,7 @@ import { Observable, delay, first, tap } from 'rxjs';
 })
 export class ProfessionalsService {
 
-  //private readonly API = '../../assets/professionals.js';
-  private apiUrl = 'http://localhost:8080/professionals';
+  private /*readonly*/  apiUrl = 'http://localhost:8080/professionals';
 
   constructor(private http: HttpClient) { }
 

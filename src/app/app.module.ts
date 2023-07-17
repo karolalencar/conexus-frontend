@@ -8,10 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
-import { HomeComponent } from './pages/clients/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppMaterialModule } from './shared/app-material/app-material.module';
 import { ProfessionalsListComponent } from './pages/professionals/professionals-list/professionals-list.component';
+import { ClientHomeComponent } from './pages/clients/home/client-home/client-home.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +19,8 @@ import { ProfessionalsListComponent } from './pages/professionals/professionals-
     HeaderComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent,
-    ProfessionalsListComponent
+    ProfessionalsListComponent,
+    ClientHomeComponent
   ],
   imports: [
     BrowserModule,
