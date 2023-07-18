@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppMaterialModule } from './shared/app-material/app-material.module';
 import { ProfessionalsListComponent } from './pages/professionals/professionals-list/professionals-list.component';
 import { ClientHomeComponent } from './pages/clients/home/client-home/client-home.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { FormsBorderComponent } from './components/forms-border/forms-border.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ClientHomeComponent } from './pages/clients/home/client-home/client-hom
     LoginComponent,
     SignupComponent,
     ProfessionalsListComponent,
-    ClientHomeComponent
+    ClientHomeComponent,
+    ToolbarComponent,
+    FormsBorderComponent
   ],
   imports: [
     BrowserModule,
