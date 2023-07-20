@@ -5,15 +5,66 @@
   <div class="signup-forms">
     <h1>Cadastre-se!</h1>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" [style.width.px]=280>
       <mat-label>Nome completo *</mat-label>
       <input matInput placeholder="Digite seu nome completo">
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" [style.width.px]=280>
       <mat-label>CPF</mat-label>
       <input matInput placeholder="Digite seu CPF">
     </mat-form-field>
+
+    <mat-form-field appearance="outline" [style.width.px]=280>
+      <mat-label>E-mail *</mat-label>
+      <input matInput placeholder="Digite seu e-mail">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" [style.width.px]=280>
+      <mat-label>Senha *</mat-label>
+      <input matInput placeholder="Digite sua senha" [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <!--<mat-form-field appearance="outline" [style.width.px]=280>
+      <mat-label>Repita a senha *</mat-label>
+      <input matInput placeholder="Digite sua senha" [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    </mat-form-field>-->
+
+    <mat-radio-group
+      class="radio-group"
+      [(ngModel)]="selectedUserType">
+      <mat-radio-button *ngFor="let userType of  userTypes" [value]="userType">
+        {{ userType }}
+      </mat-radio-button>
+    </mat-radio-group>
+
+    <div *ngIf="selectedUserType == userTypes[0]">
+
+      <mat-form-field appearance="outline" [style.width.px]=280>
+        <mat-label>Categoria</mat-label>
+        <mat-select [(ngModel)]="selectedCategory" placeholder="Selecione a categoria" name="category">
+            <mat-option *ngFor="let category of categories" [value]="category">
+              {{ category }}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!--<mat-form-field>
+        <mat-label></mat-label>
+      </mat-form-field>-->
+
+    </div>
+
+    <button mat-raised-button color="primary" [style.width.px]=100>Cadastrar</button>
+
+    <span>Já possui uma conta? Faça seu  <a [routerLink]="['/login']">Login</a></span>
+
   </div>
 
 </div>

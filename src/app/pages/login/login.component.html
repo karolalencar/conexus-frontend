@@ -5,24 +5,39 @@
   <div class="login-forms">
     <h1>Faça seu login!</h1>
 
-    <p>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-forms background">
+        <mat-form-field appearance="outline" [style.width.px]=280>
+          <mat-label>E-mail</mat-label>
+          <input
+            matInput
+            placeholder="Digite seu e-mail"
+            formControlName="email"
+          >
+          <mat-error class="error-message" *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+            O e-mail é obrigatório e deve ser um endereço de e-mail válido.
+          </mat-error>
+        </mat-form-field>
+
       <mat-form-field appearance="outline" [style.width.px]=280>
-        <mat-label>E-mail</mat-label>
-        <input matInput placeholder="Digite seu e-mail">
+        <mat-label>Senha</mat-label>
+        <input
+          matInput
+          placeholder="Digite sua senha"
+          [type]="hide ? 'password' : 'text'"
+          formControlName="password"
+        >
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        <mat-error *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+          A senha é obrigatória e deve ter pelo menos 6 caracteres.
+        </mat-error>
       </mat-form-field>
-    </p>
 
-    <mat-form-field appearance="outline" [style.width.px]=280>
-      <mat-label>Senha</mat-label>
-      <input matInput placeholder="Digite sua senha" [type]="hide ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
-      </button>
-    </mat-form-field>
+      <button mat-raised-button color="primary" [style.width.px]=100 type="submit">Entrar</button>
 
-    <button mat-raised-button color="primary" [style.width.px]=100>Entrar</button>
-
-    <span>Ainda não possui uma conta? <a color="warn" [routerLink]="['/signup']">Cadastre-se</a></span>
+      <span>Ainda não possui uma conta? <a [routerLink]="['/signup']">Cadastre-se</a></span>
+    </form>
   </div>
 
 </div>
